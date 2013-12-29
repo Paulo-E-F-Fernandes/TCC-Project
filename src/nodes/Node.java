@@ -4,23 +4,50 @@ import java.util.ArrayList;
 
 public abstract class Node {
 	
-	protected int nodeId;
+	protected Integer nodeId;
+	protected Boolean visited;
 	protected ArrayList<Node> listOfSons;
-	protected boolean visited;
 	
-	public int getNodeId() {
+	/* MÉTODOS ABSTRATOS */
+	/**
+	 * Retorna o filho da lista de filhois da posição indicada por index
+	 *  
+	 * @param index - posição do filho na lista de filhos
+	 * @return um node
+	 * 
+	 */
+	protected abstract Node getSon(Integer index);
+	/**
+	 * Para que o nodo seja indicado como visitado, precisa que todos os filhos tenham sido visitados.
+	 */
+	protected abstract void allSonsWereVisited();
+	
+	/* MÉTODOS CONSTRUTORES */
+	public Node (Integer nodeID) {
+		this.nodeId = nodeID;
+		this.listOfSons = new ArrayList<Node>();
+		this.visited = Boolean.FALSE;
+	}
+	
+	public Node () {
+		this.listOfSons = new ArrayList<Node>();
+		this.visited = Boolean.FALSE;
+	}
+	
+	/* MÉTODOS CONCRETOS */
+	public Integer getNodeId() {
 		return nodeId;
 	}
 	
-	public void setNodeId(int nodeId) {
+	public void setNodeId(Integer nodeId) {
 		this.nodeId = nodeId;
 	}
 	
-	public boolean isVisited() {
+	public Boolean isVisited() {
 		return visited;
 	}
 	
-	public void setVisited(boolean visited) {
+	public void setVisited(Boolean visited) {
 		this.visited = visited;
 	}
 	
@@ -29,25 +56,8 @@ public abstract class Node {
 	 * 
 	 * @return numero de filhos do nodo
 	 */
-	public int numberOfSons() {
+	public Integer numberOfSons() {
 		return listOfSons.size();
 	}
 	
-	/**
-	 * Retorna o filho do nodo da posicao indicada
-	 * 
-	 * @param index
-	 * @return o Node da posicao index
-	 */
-	public Node getSon(int index) {
-		return listOfSons.get(index);
-	}
-	
-	/**
-	 * Adiciona filhos ao nodo
-	 * @param son
-	 */
-	public void addSons(Node son) {
-		this.listOfSons.add(son);
-	}
 }

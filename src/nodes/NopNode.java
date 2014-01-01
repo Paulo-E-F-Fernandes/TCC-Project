@@ -28,14 +28,19 @@ public class NopNode extends Node {
 	 * @param isInitial - Boolean indicando se o nodo é inicial (true) ou final (false)
 	 * @param son - nodo filho, existindo apenas quando o o nodo for inicial. Quando o nodo for final, filho deve ser null 
 	 */
-	public NopNode(Integer nodeId, Boolean isInitial, Node son) {
+	public NopNode(Integer nodeId, Boolean isInitial) {
 		super(nodeId);
 		this.isInitial = isInitial;
-		if (isInitial && son != null) {
-			listOfSons.add(son);
-		}
 	}
 	
+	/**
+	 * @see Node#addSon(Node)
+	 */
+	@Override
+	public void addSon(Node son) {
+		this.listOfSons.add(son);
+	}
+
 	/**
 	 * @see Node#getSon(Integer)
 	 */

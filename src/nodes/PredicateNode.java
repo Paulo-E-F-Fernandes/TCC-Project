@@ -4,6 +4,10 @@ public abstract class PredicateNode extends Node {
 	
 	protected String name;
 	protected String condition;
+
+	public PredicateNode(Integer nodeId) {
+		super(nodeId);
+	}
 	
 	public String getName() {
 		return name;
@@ -19,10 +23,6 @@ public abstract class PredicateNode extends Node {
 
 	public void setCondition(String condition) {
 		this.condition = condition;
-	}
-	
-	public PredicateNode(Integer nodeId) {
-		super(nodeId);
 	}
 
 }

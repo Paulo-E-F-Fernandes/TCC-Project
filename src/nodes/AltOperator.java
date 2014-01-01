@@ -11,6 +11,8 @@ import utils.ConstantsUtils;
  */
 public class AltOperator extends PredicateNode {
 	
+	private Node nextNode;
+	
 	/**
 	 *
 	 * Método construtor
@@ -21,20 +23,18 @@ public class AltOperator extends PredicateNode {
 	 * @param nodeElse - nodo que representa a operação realizada quando a condição NÃO é satisfeita. 
 	 * 
 	 */
-	public AltOperator(Integer nodeId, String conditon, Node nodeIf, Node nodeElse) {
+	public AltOperator(Integer nodeId, String conditon) {
 		super(nodeId);
 		this.name = "ALT";
 		this.condition = conditon;
-		
-		if (nodeIf == null) {
-			throw new IllegalArgumentException("O operador " + name + " deve ter pelo menos o nodo filho da condição verdadeira!");
-		}
-		
-		listOfSons.add(nodeIf);
-		
-		if (nodeElse != null) {
-			listOfSons.add(nodeElse);
-		}
+	}
+	
+	public Node getNextNode() {
+		return nextNode;
+	}
+
+	public void setNextNode(Node nextNode) {
+		this.nextNode = nextNode;
 	}
 		
 	public Node getIf() {
@@ -50,6 +50,11 @@ public class AltOperator extends PredicateNode {
 		}
 	}
 	
+	@Override
+	public void addSon(Node son) {
+		this.listOfSons.add(son);
+	}
+
 	@Override
 	protected Node getSon(Integer index) {
 		return listOfSons.get(index);

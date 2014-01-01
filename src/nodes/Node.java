@@ -10,6 +10,12 @@ public abstract class Node {
 	
 	/* MÉTODOS ABSTRATOS */
 	/**
+	 * Adiciona os nodos na lista de filhos. 
+	 * 
+	 * @param son - um node
+	 */
+	protected abstract void addSon(Node son);
+	/**
 	 * Retorna o filho da lista de filhois da posição indicada por index
 	 *  
 	 * @param index - posição do filho na lista de filhos

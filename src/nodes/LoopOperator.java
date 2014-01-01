@@ -3,33 +3,33 @@ package nodes;
 import utils.ConstantsUtils;
 
 /**
- * Classe que representa o operador OPT do diagrama de sequência.
+ * Classe que representa o operador LOOP do diagrama de sequência.
  * 
  * @author Paulo Fernandes
- * @since 27/12/2013
+ * @since 01/01/2014
  * 
  */
-public class OptOperator extends PredicateNode {
-	
+public class LoopOperator extends PredicateNode {
+
 	/**
 	 * Método constutor.
 	 * 
 	 * @param conditon - condição para chamar os filhos. 
-	 * @param nodeOfConditionTrue - nodo que representa a operação realizada quando a condição é satisfeita.
-	 * @param nodeOfConditionFalse - nodo que representa a operação realizada quando a condição NÃO é satisfeita.
+	 * @param insideLoop - nodo que representa a operação realizada quando a condição é satisfeita.
+	 * @param outsideLoop - nodo que representa a operação realizada quando a condição NÃO é satisfeita.
 	 * 
 	 */
-	public OptOperator(Integer nodeId, String conditon) {
+	public LoopOperator(Integer nodeId, String conditon) {
 		super(nodeId);
-		this.name = "OPT";
+		this.name = "LOOP";
 		this.condition = conditon;
 	}
-	
-	public Node getNodeOfConditionTrue() {
+		
+	public Node getNodeInsideLoop() {
 		return getSon(ConstantsUtils.ZERO);
 	}
 	
-	public Node getNodeOfConditionFalse() {
+	public Node getNodeOutsideLoop() {
 		return getSon(ConstantsUtils.ONE);
 	}
 	

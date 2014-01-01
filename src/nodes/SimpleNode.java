@@ -29,13 +29,13 @@ public class SimpleNode extends Node {
 	 * @param son
 	 */
 	 
-	public SimpleNode(Integer nodeId, String operation, Node son) {
+	public SimpleNode(Integer nodeId, String operation) {
 		super(nodeId);
 		this.operation = operation;
-		if (son == null) {
-			throw new IllegalArgumentException("Um nodo simples precisa ter um filho!");
-		}
-		listOfSons.add(son);
+	}
+
+	public void addSon(Node son) {
+		this.listOfSons.add(son);
 	}
 
 	@Override

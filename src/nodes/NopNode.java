@@ -1,6 +1,6 @@
 package nodes;
 
-import utils.ConstantsUtils;
+import utilities.ConstantsUtils;
 
 /**
  * Classe de nodos vazios, para serem utilizados como nodo inicial ou nodo final.

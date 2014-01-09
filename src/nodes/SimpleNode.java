@@ -1,6 +1,6 @@
 package nodes;
 
-import utils.ConstantsUtils;
+import utilities.ConstantsUtils;
 
 /**
  * Classe que representa os nodos simples, usados como chamadas de método, por exemplo.

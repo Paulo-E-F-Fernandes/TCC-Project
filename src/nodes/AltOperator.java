@@ -1,6 +1,6 @@
 package nodes;
 
-import utils.ConstantsUtils;
+import utilities.ConstantsUtils;
 
 /**
  * Classe que representa o operador ALT do diagrama de sequência.
